@@ -4,7 +4,6 @@ const controller = require('../controllers/post');
 //Fetch All Posts
 router.get('/',controller.allPost)
 
-
 //create new Post
 router.post("/",controller.createPost)
 
