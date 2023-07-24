@@ -12,9 +12,12 @@ app.use('/uploads', express.static(path.join(__dirname,'uploads')));
 
 const userRoute = require('./route/user');
 const postRoute = require('./route/post');
+const catRoute = require('./route/category');
+
+/*
 const {saveFile,saveFiles, deleteFile} = require('./utils/gallery');
 
-app.post('/gallery',saveFile,(req,res,next) => {
+ app.post('/gallery',saveFile,(req,res,next) => {
 res.status(200).json({msg:"File uploaded", filename:req.imageName})
 })
 
@@ -52,7 +55,9 @@ const isAdmin = (req,res,next) => {
 }
 
 app.use('/users',isLogin,isAdmin, funky);
-//app.use('/users', userRoute);
+ */
+app.use('/categories', catRoute);
+app.use('/users', userRoute);
 app.use('/posts', postRoute);
 
 app.use((err,req,res,next) => {
